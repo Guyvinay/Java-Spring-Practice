@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="os" class="com.masai.OrderService">
+		<property name="restaurantService" ref="rs"/>
+	</bean>
+	
+   <bean id="rs" class="com.masai.RestaurantService" />
+
+	<bean id="ds" class="com.masai.DeliveryService">
+		<property name="ser" ref="os"/>
+	</bean>
+
+	<!-- more bean definitions go here -->
+
+</beans>
