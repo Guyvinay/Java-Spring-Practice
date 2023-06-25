@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="mb" class="com.masai.MyBusinessClass">  
+		<!-- collaborators and configuration for this bean go here -->
+		
+		<property name="roll"  value="100" />
+		<property name="name" value="Vinay"/>
+		
+		
+	</bean>
+	
+	<bean id="b" class="com.masai.Bike"/>
+	<bean id="c" class="com.masai.Car" />
+	
+	
+	<bean id="tr" class="com.masai.Travel">
+		<!--<property name="v" ref="c"/> -->
+		<constructor-arg name="v" ref="c"/>
+		
+	</bean>
+
+
+
+
+	<!-- <bean id="..." class="...">
+		collaborators and configuration for this bean go here
+	</bean>  -->
+
+	<!-- more bean definitions go here -->
+
+</beans>
