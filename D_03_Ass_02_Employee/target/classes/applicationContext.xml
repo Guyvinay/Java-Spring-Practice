@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+		<bean id="emp1" class="com.masai.Employee">
+			<property name="empId" value="12"/>
+			<property name="empName" value="Employee11"/>
+			<property name="address" value="Patna"/>
+			<property name="salary" value="14642"/>
+		</bean>
+		<bean id="emp2" class="com.masai.Employee">
+			<property name="empId" value="15"/>
+			<property name="empName" value="Employee12"/>
+			<property name="address" value="Mumb"/>
+			<property name="salary" value="146842"/>
+		</bean>
+		<bean id="emp3" class="com.masai.Employee">
+			<property name="empId" value="13"/>
+			<property name="empName" value="Employee13"/>
+			<property name="address" value="Delhi"/>
+			<property name="salary" value="146342"/>
+		</bean>
+		
+		<bean id="dept1" class="com.masai.Department">
+			<property name="deptId" value="10"/>
+			<property name="deptName" value="Sales"/>
+			<property name="location" value="Patna"/>
+		</bean>
+		<bean id="dept2" class="com.masai.Department">
+			<property name="deptId" value="15"/>
+			<property name="deptName" value="Marketing"/>
+			<property name="location" value="Noida"/>
+		</bean>
+		<bean id="dept3" class="com.masai.Department">
+			<property name="deptId" value="12"/>
+			<property name="deptName" value="Accounts"/>
+			<property name="location" value="Chennai"/>
+		</bean>
+		
+		<bean id="demo" class="com.masai.Demo" init-method="myInit" destroy-method="cleanUP">
+			
+			<property name="theMap">
+				<map>
+					<entry key-ref="dept1" value-ref="emp1"/>
+					<entry key-ref="dept2" value-ref="emp2"/>
+					<entry key-ref="dept3" value-ref="emp3"/>
+				</map>
+			</property>
+			
+		</bean>
+	
+	
+	
+	
+</beans>
