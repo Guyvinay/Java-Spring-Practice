@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+        <bean id="mem" class="com.masai.Entity.Member">
+			<property name="memberId" value="1"/>
+			<property name="memberName" value="mem1"/>
+			<property name="age" value="111"/>
+			<property name="membershipType" value="rdgvjh"/>
+		</bean>
+		
+		<bean id="wp" class="com.masai.Entity.WorkoutProgram">
+			<property name="programId" value="1"/>
+			<property name="programName" value="pg1"/>
+			<property name="programDuration" value="11"/>
+		</bean>
+        
+        <bean id="gm" class="com.masai.Entity.GymManager" init-method="intiMethod" destroy-method="destroyMethod" lazy-init="true"> 
+			
+			<constructor-arg name="gymPrograms">
+				<map>
+					<entry key-ref="wp" value-ref="mem"/>
+				</map>
+			</constructor-arg>
+			
+		</bean>
+        
+</beans>
