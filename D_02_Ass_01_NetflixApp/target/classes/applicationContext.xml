@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+	<bean id="cs" class="com.masai.ContentService">
+    
+    <property name="userService" ref="us"/>
+    
+    </bean>
+    
+	<bean id="us" class="com.masai.UserService">
+    
+    <property name="services" ref="rs"/>
+    <!--<property name="services" ref="us"/>-->
+    
+    
+    </bean>
+    
+	<bean id="rs" class="com.masai.RecommendationService">
+    
+    <property name="contentService" ref="cs"/>
+    
+    </bean>
+	
+	
+
+</beans>
