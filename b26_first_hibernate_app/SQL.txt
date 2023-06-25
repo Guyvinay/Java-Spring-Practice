@@ -1,0 +1,7 @@
+CREATE TABLE student(
+	roll int primary key,
+	name varchar(20),
+	marks int
+);
+
+INSERT INTO student VALUES (10, 'ABC', 450), (11, 'BCD', 500);
