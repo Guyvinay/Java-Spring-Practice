@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+		<bean id="hotel1" class="com.masai.Hotel">
+			<constructor-arg value="1"/>
+			<constructor-arg value="hotel1"/>
+			<constructor-arg value="loc1"/>
+			<constructor-arg value="4.5"/>
+		</bean>
+		<bean id="hotel2" class="com.masai.Hotel">
+		    <constructor-arg value="2"/>
+			<constructor-arg value="hotel2"/>
+			<constructor-arg value="loc2"/>
+			<constructor-arg value="4.8"/>
+		</bean>
+		<bean id="hotel3" class="com.masai.Hotel">
+			 <constructor-arg value="3"/>
+			<constructor-arg value="hotel3"/>
+			<constructor-arg value="loc3"/>
+			<constructor-arg value="4.2"/>
+		</bean>
+		
+		<bean id="pack1" class="com.masai.Package">
+			<constructor-arg value="1"/>
+			<constructor-arg value="package1"/>
+			<constructor-arg value="11"/>
+			<constructor-arg value="74667"/>
+		</bean>
+		<bean id="pack2" class="com.masai.Package">
+			<constructor-arg value="2"/>
+			<constructor-arg value="package2"/>
+			<constructor-arg value="12"/>
+			<constructor-arg value="74665"/>
+		</bean>
+		<bean id="pack3" class="com.masai.Package">
+			<constructor-arg value="3"/>
+			<constructor-arg value="package3"/>
+			<constructor-arg value="14"/>
+			<constructor-arg value="74198"/>
+		</bean>
+		
+		<bean id="hP" class="com.masai.HolidayPlanner" init-method="initialize" destroy-method="terminate" lazy-init="true">
+			<property name="theMap">
+				<map>
+					<entry key-ref="hotel1" value-ref="pack1" />
+					<entry key-ref="hotel2" value-ref="pack2" />
+					<entry key-ref="hotel3" value-ref="pack3" />
+				</map>
+			</property>
+		</bean>
+		
+
+</beans>
