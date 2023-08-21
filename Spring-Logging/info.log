@@ -1,0 +1,15 @@
+12-07-2023 02:38:12.7550|INFO |Starting SpringLoggingApplication using Java 17.0.6 with PID 2840 (E:\JAVA\U05\session_project\Spring-Logging\target\classes started by mrsin in E:\JAVA\U05\session_project\Spring-Logging)
+12-07-2023 02:38:12.7570|INFO |No active profile set, falling back to 1 default profile: "default"
+12-07-2023 02:38:13.1730|INFO |Started SpringLoggingApplication in 0.561 seconds (process running for 198.577)
+12-07-2023 02:38:18.9360|INFO |An INFO Message
+12-07-2023 02:39:59.5700|INFO |Starting SpringLoggingApplication using Java 17.0.6 with PID 2840 (E:\JAVA\U05\session_project\Spring-Logging\target\classes started by mrsin in E:\JAVA\U05\session_project\Spring-Logging)
+12-07-2023 02:39:59.5700|INFO |No active profile set, falling back to 1 default profile: "default"
+12-07-2023 02:39:59.8740|INFO |Started SpringLoggingApplication in 0.349 seconds (process running for 305.278)
+12-07-2023 02:40:06.4620|INFO |Starting SpringLoggingApplication using Java 17.0.6 with PID 10860 (E:\JAVA\U05\session_project\Spring-Logging\target\classes started by mrsin in E:\JAVA\U05\session_project\Spring-Logging)
+12-07-2023 02:40:06.4670|INFO |No active profile set, falling back to 1 default profile: "default"
+12-07-2023 02:40:08.6550|INFO |Started SpringLoggingApplication in 2.906 seconds (process running for 4.208)
+12-07-2023 02:40:13.5950|INFO |An INFO Message
+12-07-2023 05:00:28.6430|INFO |Starting SpringLoggingApplication using Java 17.0.6 with PID 13488 (E:\JAVA\U05\session_project\Spring-Logging\target\classes started by mrsin in E:\JAVA\U05\session_project\Spring-Logging)
+12-07-2023 05:00:28.6470|INFO |No active profile set, falling back to 1 default profile: "default"
+12-07-2023 05:00:31.2130|INFO |Started SpringLoggingApplication in 3.344 seconds (process running for 4.477)
+12-07-2023 05:09:19.3060|INFO |An INFO Message

@@ -1,0 +1,21 @@
+[INFO] Starting SpringLoggingApplication using Java 17.0.6 with PID 2840 (E:\JAVA\U05\session_project\Spring-Logging\target\classes started by mrsin in E:\JAVA\U05\session_project\Spring-Logging) 2023-07-12
+[INFO] No active profile set, falling back to 1 default profile: "default" 2023-07-12
+[INFO] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 2023-07-12
+[INFO] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 2023-07-12
+[INFO] Tomcat initialized with port(s): 8080 (http) 2023-07-12
+[INFO] Starting service [Tomcat] 2023-07-12
+[INFO] Starting Servlet engine: [Apache Tomcat/10.1.10] 2023-07-12
+[INFO] Initializing Spring embedded WebApplicationContext 2023-07-12
+[INFO] Root WebApplicationContext: initialization completed in 1304 ms 2023-07-12
+[INFO] LiveReload server is running on port 35729 2023-07-12
+[INFO] Tomcat started on port(s): 8080 (http) with context path '' 2023-07-12
+[INFO] Started SpringLoggingApplication in 2.469 seconds (process running for 3.522) 2023-07-12
+[INFO] Initializing Spring DispatcherServlet 'dispatcherServlet' 2023-07-12
+[INFO] Initializing Servlet 'dispatcherServlet' 2023-07-12
+[INFO] Completed initialization in 1 ms 2023-07-12
+[INFO] An INFO Message 2023-07-12
+[WARN] A WARN Message 2023-07-12
+[ERROR] An ERROR Message 2023-07-12
+[INFO] Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications) 2023-07-12
+[INFO] Stopping service [Tomcat] 2023-07-12
+[INFO] Destroying Spring FrameworkServlet 'dispatcherServlet' 2023-07-12
