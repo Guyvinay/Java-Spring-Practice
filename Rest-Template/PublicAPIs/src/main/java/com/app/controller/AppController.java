@@ -21,35 +21,39 @@ import com.app.service.AppService;
 @RequestMapping(value = "/api")
 public class AppController {
 
-	private static String baseUrl = "https://api.publicapis.org";
+	private static final String baseUrl = "https://api.publicapis.org";
 	
 	@Autowired
 	private RestTemplate restTemplate;
 	
 	@Autowired
 	private AppService appService;
-	
+
+	//To fetch all actual categories
 	@GetMapping(value = "/categories")
 	public ResponseEntity<Category> getCategories(){
 		
 		return new ResponseEntity<Category>(appService.getCategories(), HttpStatus.ACCEPTED);
 	}
-	
+
+	//Getting entries with category
 	@GetMapping(value = "/entries/{category}")
 	public ResponseEntity<List<Entry>> getEntriesByCategory(@PathVariable("category") String category){
 		
 		return new ResponseEntity<List<Entry>>(appService.getEntriesByCategory(category), HttpStatus.ACCEPTED);
 	}
 	
-	
+
+	//getting all entries
 	@GetMapping(value = "/resources")
 	public ResponseEntity<ResponseDTO> fetchUrl(){
-		ResponseEntity<ResponseDTO> responseEntity = restTemplate
+
+        return restTemplate
 				.getForEntity(baseUrl+"/entries", ResponseDTO.class);
-		
-		return responseEntity;
 	}
-	@GetMapping(value = "/random")
+
+	//getting one random entry and save in database
+	@GetMapping(value = "/save_random_entry")
 	public ResponseEntity<Entity> saveRandomEntry(){
 
 		return new ResponseEntity<Entity>(appService.saveRandomEntry(), HttpStatus.ACCEPTED);

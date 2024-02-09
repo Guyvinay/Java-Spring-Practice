@@ -18,7 +18,7 @@ import com.app.repository.AppRepository;
 @Service
 public class AppServiceImpl implements AppService {
 
-	private static String baseUrl = "https://api.publicapis.org";
+	private static final String baseUrl = "https://api.publicapis.org";
 
 	@Autowired
 	private AppRepository appRepository;
@@ -28,7 +28,10 @@ public class AppServiceImpl implements AppService {
 
 	@Override
 	public Category getCategories() {
-		ResponseEntity<Category> responseEntity = restTemplate.getForEntity(baseUrl + "/categories", Category.class);
+
+		//getting list of category
+		ResponseEntity<Category> responseEntity = restTemplate.getForEntity(
+				baseUrl + "/categories", Category.class);
 
 		return responseEntity.getBody();
 	}
@@ -36,15 +39,22 @@ public class AppServiceImpl implements AppService {
 	@Override
 	public List<Entry> getEntriesByCategory(String category) {
 
-		ResponseEntity<ResponseDTO> responseEntity = restTemplate.getForEntity(baseUrl + "/entries", ResponseDTO.class);
+		//Getting entire entries
+		ResponseEntity<ResponseDTO> responseEntity = restTemplate.getForEntity(
+				baseUrl + "/entries", ResponseDTO.class);
 
+		//check if response is successful or not
 		if (!responseEntity.getStatusCode().is2xxSuccessful())
 			throw new NotFoundException("Extraction Failed!!!");
 
+		//getting entries
 		ResponseDTO responseDTO = responseEntity.getBody();
 
+		//if entries empty
 		if (responseDTO.getEntries().isEmpty())
-			throw new NotFoundException("Entires Not Found!!!");
+			throw new NotFoundException("Entries Not Found!!!");
+
+		//filtering entries with categories using stream api
 		List<Entry> collect = responseDTO.getEntries().stream()
 				.filter((e) -> e.getCategory().equalsIgnoreCase(category)).collect(Collectors.toList());
 
@@ -56,16 +66,20 @@ public class AppServiceImpl implements AppService {
 
 	@Override
 	public Entity saveRandomEntry() {
+
+		//Getting random entry with /random endpoint
 		ResponseEntity<ResponseDTO> responseEntity = restTemplate.getForEntity(baseUrl + "/random", ResponseDTO.class);
 
 		if (!responseEntity.getStatusCode().is2xxSuccessful())
 			throw new NotFoundException("Extraction Failed!!!");
 
+		//getting one random actual entry
 		Entry body = responseEntity.getBody().getEntries().get(0);
 
 		if (body == null)
 			throw new NotFoundException("Entry Not Found!!!");
 
+		//creating actual Entry object to persist in database
 		return appRepository.save(new Entity(body.getAPI(), body.getDescription(), body.getLink(), body.getCategory()));
 	}
 
