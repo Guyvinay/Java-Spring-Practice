@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.app.modal.Category;
+import com.app.modal.Entity;
 import com.app.modal.Entry;
 import com.app.modal.ResponseDTO;
 import com.app.service.AppService;
@@ -49,5 +49,9 @@ public class AppController {
 		
 		return responseEntity;
 	}
-	
+	@GetMapping(value = "/random")
+	public ResponseEntity<Entity> saveRandomEntry(){
+
+		return new ResponseEntity<Entity>(appService.saveRandomEntry(), HttpStatus.ACCEPTED);
+	}
 }
