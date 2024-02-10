@@ -2,6 +2,7 @@ package com.app;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,8 +12,8 @@ import java.util.Map;
 public class Main {
 
     //Path for the csv files
-    static final String inputFilePath = "input.csv";
-    static final String outputFilePath = "output.csv";
+    static final File inputFilePath = new File("input.csv");
+    static final File outputFilePath = new File("output.csv");
 	
 	public static void main(String[] args) {
 		
@@ -33,7 +34,7 @@ public class Main {
 
 	}
 
-    public static Map<String, String> readCSV(String filePath) {
+    public static Map<String, String> readCSV(File filePath) {
 
         //declaring LinkedHashMap to store read entries from CSV file in order
         Map<String, String> values = new LinkedHashMap<>();
