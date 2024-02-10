@@ -2,29 +2,40 @@ package com.app;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Main {
+
+    //Path for the csv files
+    static final String inputFilePath = "input.csv";
+    static final String outputFilePath = "output.csv";
 	
 	public static void main(String[] args) {
-		String inputFilePath = "input.csv";
-        String outputFilePath = "output.csv";
+		
         try {
             Map<String, String> values = readCSV(inputFilePath);
+
             System.out.println(values);
+
+            //Process inputes from CSV file
             Map<String, Double> ans = processMap(values);
+
             System.out.println(ans);
+
+            //Writing processed value to CSV file
+            writeToCSVFile(ans);
         } catch (IOException e) {
             System.err.println("Error processing CSV file: " + e.getMessage());
         }
 	}
 
-    private static Map<String, String> readCSV(String filePath) throws IOException {
+    public static Map<String, String> readCSV(String filePath) throws IOException {
+
         Map<String, String> values = new LinkedHashMap<>();
+        
         try(BufferedReader reader = new BufferedReader(new FileReader(filePath)))  {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -38,7 +49,7 @@ public class Main {
         return values;
     }
 
-	private static Map<String, Double> processMap(Map<String, String> values) {
+	public static Map<String, Double> processMap(Map<String, String> values) {
         Map<String, Double> ansMap = new LinkedHashMap<>();
         for(Map.Entry<String, String> ent:values.entrySet()){
             String key = ent.getKey();
@@ -53,7 +64,7 @@ public class Main {
         return ansMap;
     }
 
-    private static double evaluateValue(String str, Map<String, String> values) {
+    public static double evaluateValue(String str, Map<String, String> values) {
         String[] vals = str.split("\\+");
         double sum = 0;
         for(String val: vals){
@@ -67,4 +78,15 @@ public class Main {
     }
 
     
+    public static void writeToCSVFile(Map<String, Double> ans) {
+        try (FileWriter fileWriter = new FileWriter(outputFilePath)) {
+            for(Map.Entry<String, Double> ent : ans.entrySet()){
+                fileWriter.append(ent.getKey()).append(":").append(String.valueOf(ent.getValue())).append(",\n");
+            }
+        } catch (IOException e) {
+           System.out.println("Write to CSV file failed: "+e.getMessage());
+        }
+    }
+
 }
+
