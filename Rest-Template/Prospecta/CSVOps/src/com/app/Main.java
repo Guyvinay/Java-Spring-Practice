@@ -20,7 +20,6 @@ public class Main {
             //declaring method to read  values from CSV file
             Map<String, String> values = readCSV(inputFilePath);
 
-
             System.out.println(values);
 
             //Process inputes from CSV file
@@ -111,4 +110,3 @@ public class Main {
         }
     }
 }
-
